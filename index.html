@@ -1,47 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="monetag" content="696b937512c972446260ba804e2fcb50">
   <title>Monetag Mini App</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
     <h1>Welcome to Monetag Mini App</h1>
-    <p class="points">Points: <span id="points">0</span></p>
+    <div class="points">Points: <span id="points">0</span></div>
 
-    <div class="actions">
-      <button onclick="showAd()">📺 Watch Ad (40 pts)</button>
-      <button onclick="showBonus()">🎁 Bonus</button>
-      <button onclick="showRefer()">👥 Refer</button>
-      <button onclick="showWithdraw()">💵 Withdraw</button>
+    <div class="menu">
+      <button onclick="showAd()">🎥 Watch Ad (40 Points)</button>
+      <button onclick="referFriend()">👥 Refer & Earn (500 Points)</button>
+      <button onclick="showBonus()">🎁 Join Telegram Bonus</button>
+      <button onclick="withdraw()">💵 Withdraw</button>
     </div>
 
-    <div class="bonus hidden" id="bonus">
-      <p>Join our Telegram channel:</p>
-      <a href="https://t.me/shikto237277" target="_blank">@shikto237277</a>
-    </div>
-
-    <div class="refer hidden" id="refer">
-      <p>Refer friends to earn 500 points each!</p>
-      <p>Your referral link: <span id="ref-link">https://t.me/MonetagXTgBot</span></p>
-    </div>
-
-    <div class="withdraw hidden" id="withdraw">
-      <p>Withdraw Method:</p>
+    <div id="withdraw-form" class="hidden">
+      <h3>Withdraw Method:</h3>
       <select id="method">
         <option value="bkash">Bkash Number</option>
         <option value="binance">Binance ID</option>
       </select>
-
-      <input type="text" id="receiver" placeholder="Bkash Number / Binance ID">
+      <input type="text" id="account" placeholder="Bkash/ID">
       <input type="number" id="amount" placeholder="Amount (৳)">
       <button onclick="submitWithdraw()">Submit</button>
     </div>
   </div>
 
+  <!-- Monetag SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@monetag/monetag-sdk"></script>
+  <!-- Your Script -->
   <script src="script.js"></script>
 </body>
 </html>
